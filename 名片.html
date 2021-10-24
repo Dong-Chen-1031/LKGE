@@ -28,32 +28,38 @@
     <div onclick="openwhy();"><p class="whyopen">名片原理　▼</p></div>
     <div id='why' class="hide">
         <p>
-            本名片的內容會隨著一個json檔案改變(
+            本名片的內容會隨著一個json（<b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation：是一種資料儲存格式）檔案改變(
             <a href="https://dong-chen-1031.github.io/LKGE/%E5%90%8D%E7%89%87.json" target="_blank">
                 https://dong-chen-1031.github.io/LKGE/名片.json
             </a>)，json內容如下：
         </p>
-        <textarea cols="30" rows="10" id="whyw"></textarea>
+        <textarea cols="100" rows="10" id="whyw" oninput="textwhy(this)"></textarea>
+        <p>ps.歡迎編輯上方json，但格式需正確(「""」和「：」 勿刪除，只能變更「:」後方文字)<br><br>name = 名字<br>address = 地址<br>Email = 電子郵件<br>phone = 行動電話<br>img = 圖片(暫時勿更動)</p>
     </div>
+
     <script>
         function update (result){
-            var iten = ['address','name','phone','Email']
-            var iten0 = result[0]
+            result = JSON.parse(result);
+            var iten = ['address','name','phone','Email'];
+            var iten0 = result[0];
             for (var i = 0; i < iten.length; i++) {
-                eval('document.getElementById(iten[i]).innerText = iten0.'+iten[i])
-            }
-            document.getElementById('Emaila').setAttribute('href','mailto:'+iten0.Email)
-            document.getElementById('img').setAttribute('src',iten0.img)
-        }
+                eval('document.getElementById(iten[i]).innerText = iten0.'+iten[i]);
+            };
+            document.getElementById('Emaila').setAttribute('href','mailto:'+iten0.Email);
+            document.getElementById('img').setAttribute('src',iten0.img);
+        };
         fetch("https://dong-chen-1031.github.io/LKGE/%E5%90%8D%E7%89%87.json").then(function(response){
             return response.text();
         }).then(function(re){
-            document.getElementById('whyw').innerText = re;
-            return JSON.parse(re);
-        }).then(update);
+            document.getElementById('whyw').value = re;
+            return re;
+        }).then(update)
         function openwhy(){
             document.getElementById('why').classList.toggle('hide')
         } 
+        function textwhy(text){
+            update(text.value);
+        };
     </script> 
 </body>
 </html>
