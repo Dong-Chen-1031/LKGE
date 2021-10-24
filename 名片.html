@@ -7,6 +7,8 @@
     <base href="https://dong-chen-1031.github.io/LKGE/">
     <style>
         .hide{display: none;}
+        p{font-size: 20px;}
+        textarea{font-size: 15px;}
     </style>
 </head>
 <body>
@@ -28,13 +30,13 @@
     <div onclick="openwhy();"><p class="whyopen">名片原理　▼</p></div>
     <div id='why' class="hide">
         <p>
-            本名片的內容會隨著一個json（<b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation：是一種資料儲存格式）檔案改變(
+            本名片的內容抓取於一個json（<b>J</b>ava<b>S</b>cript <b>O</b>bject <b>N</b>otation：是一種資料儲存格式），當json檔案改變，本名片內容會更著改變，藉此達到快速客製化名片。(
             <a href="https://dong-chen-1031.github.io/LKGE/%E5%90%8D%E7%89%87.json" target="_blank">
                 https://dong-chen-1031.github.io/LKGE/名片.json
-            </a>)，json內容如下：
+            </a>)<br><br>json內容如下：
         </p>
         <textarea cols="100" rows="10" id="whyw" oninput="textwhy(this)"></textarea>
-        <p>ps.歡迎編輯上方json，但格式需正確(「""」和「：」 勿刪除，只能變更「:」後方文字)<br><br>name = 名字<br>address = 地址<br>Email = 電子郵件<br>phone = 行動電話<br>img = 圖片(暫時勿更動)</p>
+        <p>ps.歡迎編輯上方json，並觀察本名片的改變，但格式需正確(「""」和「：」 勿刪除，只能變更「:」後方文字)<br><br>name = 名字<br>address = 地址<br>Email = 電子郵件<br>phone = 行動電話<br>img = 圖片(暫時勿更動)</p>
     </div>
 
     <script>
