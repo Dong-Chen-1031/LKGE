@@ -15,7 +15,7 @@
     align-items: center;
     }
 .hr1{height: 2px;border:none;color:#333;background-color:#333;width: 1000px;}
-.name{text-align: center;font-size: 60px;margin: 0px;}
+.name{text-align: center;font-size: 30px;margin: 0px;}
 .dongimg{height: 100px;width: 100px;}
 .namediv{width: auto;margin-left: auto;margin-right: auto;}
 .dongdiv{width: 600px;height: 300px;margin-left: auto;margin-right: auto;}
